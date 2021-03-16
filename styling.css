@@ -22,6 +22,14 @@ dd {
     font-style: italic;
 }
 
+ul {
+    list-style-type: none;
+}
+
+li {
+   height: 200px;
+}
+
 .center {
     margin: auto;
     width: 100%;

@@ -81,9 +81,11 @@ tr:nth-child(even) {
 
 .flex-container {
     display: flex;
+    background-color: #5d5c84;
 }
 
 .flex-container > div {
+    background-color: #5d5c84;
     margin: 10px;
     padding: 20px;
     font-size: 30px;

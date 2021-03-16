@@ -83,6 +83,18 @@
         tr:nth-child(even) {
             background-color: #a2a0d3;
         }
+
+        .flex-container {
+            display: flex;
+            background-color: DodgerBlue;
+        }
+
+        .flex-container > div {
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
     </style>
     <script>
         window.onload = function() {
@@ -122,7 +134,7 @@
 <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'Main')">Main</button>
     <button class="tablinks" onclick="openTab(event, 'About')">About</button>
-    <button class="tablinks" onclick="openTab(event, 'Bracket')">Bracket 1</button>
+    <button class="tablinks" onclick="openTab(event, 'Bracket 1')">Bracket 1</button>
 </div>
 
 <div id="Main" class="tabcontent">
@@ -139,7 +151,27 @@
 <div id="Bracket 1" class="tabcontent">
     <h2 class="center">Bracket 1</h2>
     <p>This is the first page where the bracket will be</p>
-</div>
 
+    <div class="flex-container">
+        <div>
+            <ul>
+                <li>Team 1</li>
+                <li>Team 1</li>
+                <br>
+                <li>Team 1</li>
+                <li>Team 1</li>
+                <br>
+                <li>Team 1</li>
+                <li>Team 1</li>
+                <br>
+                <li>Team 1</li>
+                <li>Team 1</li>
+                <br>
+            </ul>
+        </div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</div>
 </body>
 </html>

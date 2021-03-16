@@ -13,12 +13,6 @@ function openTab(evt, tabName) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    if(tabName === "Admin"){
-        if(prompt("Enter password.").toLowerCase() !== ""){
-            alert("Wrong password. The password can be found at the top of the welcome message when you click 'edit'.");
-            return;
-        }
-    }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }

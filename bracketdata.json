@@ -1,0 +1,12 @@
+{ "teams":
+[
+  {"itemName":"Iowa State","itemPath":"BracketGifs/TeamGifs/IowaState.gif","votes":"0"},
+  {"itemName":"Kansas","itemPath":"BracketGifs/TeamGifs/Kansas.gif","votes":"0"},
+  {"itemName":"Michigan State","itemPath":"BracketGifs/TeamGifs/MichiganState.gif","votes":"0"},
+  {"itemName":"Minnesota","itemPath":"BracketGifs/TeamGifs/Minnesota.gif","votes":"0"},
+  {"itemName":"Missouri","itemPath":"BracketGifs/TeamGifs/Missouri.gif","votes":"0"},
+  {"itemName":"Nebraska","itemPath":"BracketGifs/TeamGifs/Nebraska.gif","votes":"0"},
+  {"itemName":"Ohio State","itemPath":"BracketGifs/TeamGifs/OhioState.gif","votes":"0"},
+  {"itemName":"Iowa","itemPath":"BracketGifs/TeamGifs/Iowa.gif","votes":"0"}
+]
+}

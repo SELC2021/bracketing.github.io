@@ -22,3 +22,6 @@ function show(name) {
     popup.classList.toggle("show");
 }
 
+function voteButton() {
+    var test = "";
+}

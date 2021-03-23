@@ -25,3 +25,29 @@ function show(name) {
 function voteButton() {
     var test = "";
 }
+
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+function loadBracket(bracketID)
+{
+    readTextFile("bracketdata.json", function(text){
+        var data = JSON.parse(text);
+
+        let teamCount = 8;
+        var i;
+        for(i = 0; i < teamCount; i++)
+        {
+            document.getElementById('r1t' + (i + 1).toString()).innerHTML = '<img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
+        }
+    });
+}

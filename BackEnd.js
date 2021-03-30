@@ -1,5 +1,7 @@
 //Js file for website
 window.onload = function() {
+    loadBracket(0);
+
     openTab(null, "Main");
 }
 
@@ -22,8 +24,8 @@ function show(name) {
     popup.classList.toggle("show");
 }
 
-function voteButton() {
-    var test = "";
+function voteButton(clicked_id) {
+    document.getElementById(clicked_id).innerHTML = "clicked";
 }
 
 function readTextFile(file, callback) {
@@ -47,7 +49,7 @@ function loadBracket(bracketID)
         var i;
         for(i = 0; i < teamCount; i++)
         {
-            document.getElementById('r1t' + (i + 1).toString()).innerHTML = '<img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
+            document.getElementById('r1t' + (i + 1).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
         }
     });
 }

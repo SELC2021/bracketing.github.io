@@ -44,7 +44,7 @@ li {
 }
 
 .tab button {
-    background-color: inherit;
+    background-color: lightslategrey;
     float: left;
     border: none;
     border-radius: 15px;

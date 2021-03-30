@@ -31,11 +31,32 @@ function voteButton(clicked_id) {
     var roundid = parseInt(clicked_id[2]);
     var teamid = parseInt(clicked_id[4]);
 
-    //find the opposite button to disable
-    document.getElementById('br' + roundid + 't' + (teamid + ((teamid + 1) % 2) - (teamid % 2))).disabled = true;
+    //get other team id
+    var otherTeamid = teamid + ((teamid + 1) % 2) - (teamid % 2);
+
+    //disable both buttons
+    document.getElementById(clicked_id).disabled = true;
+    document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
+}
+
+function voteTeam(teamId) {
+
+}
+
+function  writeTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+
 }
 
 function readTextFile(file, callback) {
+    // const fs = require('fs');
+    //
+    // fs.readFile(file, (err, data) => {
+    //    callback(data);
+    // });
+
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);

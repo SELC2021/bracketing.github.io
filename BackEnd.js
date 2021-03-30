@@ -25,7 +25,14 @@ function show(name) {
 }
 
 function voteButton(clicked_id) {
-    document.getElementById(clicked_id).innerHTML = "clicked";
+    //document.getElementById(clicked_id).innerHTML = "clicked";
+
+    //button id format goes as follows: b r roundID t teamID
+    var roundid = parseInt(clicked_id[2]);
+    var teamid = parseInt(clicked_id[4]);
+
+    //find the opposite button to disable
+    document.getElementById('br' + roundid + 't' + (teamid + ((teamid + 1) % 2))).disabled = true;
 }
 
 function readTextFile(file, callback) {
@@ -49,7 +56,7 @@ function loadBracket(bracketID)
         var i;
         for(i = 0; i < teamCount; i++)
         {
-            document.getElementById('r1t' + (i + 1).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
+            document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
         }
     });
 }

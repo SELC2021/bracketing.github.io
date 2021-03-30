@@ -32,7 +32,7 @@ function voteButton(clicked_id) {
     var teamid = parseInt(clicked_id[4]);
 
     //find the opposite button to disable
-    document.getElementById('br' + roundid + 't' + (teamid + ((teamid + 1) % 2))).disabled = true;
+    document.getElementById('br' + roundid + 't' + (teamid + ((teamid + 1) % 2) - (teamid % 2))).disabled = true;
 }
 
 function readTextFile(file, callback) {

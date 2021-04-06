@@ -72,24 +72,36 @@ function loadBrackets()
     readTextFile("bracketdata.json", function(text){
         var data = JSON.parse(text);
 
-        let teamCount = data.teams.length;
         var i;
-        for(i = 0; i < teamCount; i++)
+        for(i = 0; i < data.brackets.length; i++)
         {
-            document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
-            '<img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/></button><br>' + data.teams[i].itemName;
-        }
-
-        //fill out the other rounds, but empty
-        var j;
-        for(j = 1; j < bracketSize(teamCount); j++)
-        {
-            for(i = 0; i < teamCount / (Math.pow(2, 1 + j)); i++)
-            {
-                document.getElementById('r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
-            }
+            loadBracketById(i, data);
         }
     });
+}
+
+function loadBracketById(id, data)
+{
+    var items = data.brackets[id];
+
+    let count = items.length;
+
+    var i;
+    for(i = 0; i < count; i++)
+    {
+        document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
+            '<img src="' + items[i].itemPath + '" title="' + items[i].itemName +'" width="240" height="150"/></button><br>' + items[i].itemName;
+    }
+
+    //fill out the other rounds, but empty
+    var j;
+    for(j = 1; j < bracketSize(count); j++)
+    {
+        for(i = 0; i < count / (Math.pow(2, 1 + j)); i++)
+        {
+            document.getElementById('r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
+        }
+    }
 }
 
 function bracketSize(teamCount)

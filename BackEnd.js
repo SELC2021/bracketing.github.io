@@ -39,10 +39,16 @@ function voteButton(clicked_id) {
     document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
 
     voteTeam(teamid);
+    advanceTeam(roundid, teamid);
 }
 
 function voteTeam(teamId) {
 
+}
+
+function advanceTeam(currentRoundId, teamId)
+{
+    document.getElementById('br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML = document.getElementById('br' + currentRoundId + 't' + teamId).innerHTML;
 }
 
 function  writeTextFile(file, text, callback) {
@@ -73,5 +79,22 @@ function loadBrackets()
             document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
             '<img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/></button><br>' + data.teams[i].itemName;
         }
+
+        //fill out the other rounds, but empty
+        var j;
+        for(j = 1; j < bracketSize(teamCount); j++)
+        {
+            for(i = 0; i < teamCount / (Math.pow(2, 1 + j)); i++)
+            {
+                document.getElementById('r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
+            }
+        }
     });
+}
+
+function bracketSize(teamCount)
+{
+    if(teamCount === 1) return 1;
+
+    return bracketSize(teamCount / 2) + 1;
 }

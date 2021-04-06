@@ -1,6 +1,6 @@
 //Js file for website
 window.onload = function() {
-    loadBracket(0);
+    loadBrackets();
 
     openTab(null, "Main");
 }
@@ -68,12 +68,12 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
-function loadBracket(bracketID)
+function loadBrackets()
 {
     readTextFile("bracketdata.json", function(text){
         var data = JSON.parse(text);
 
-        let teamCount = 8;
+        let teamCount = data.teams.length;
         var i;
         for(i = 0; i < teamCount; i++)
         {

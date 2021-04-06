@@ -37,26 +37,19 @@ function voteButton(clicked_id) {
     //disable both buttons
     document.getElementById(clicked_id).disabled = true;
     document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
+
+    voteTeam(teamid);
 }
 
 function voteTeam(teamId) {
 
 }
 
-function  writeTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
+function  writeTextFile(file, text, callback) {
 
 }
 
 function readTextFile(file, callback) {
-    // const fs = require('fs');
-    //
-    // fs.readFile(file, (err, data) => {
-    //    callback(data);
-    // });
-
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
@@ -77,7 +70,8 @@ function loadBrackets()
         var i;
         for(i = 0; i < teamCount; i++)
         {
-            document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
+            document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
+            '<img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/></button><br>' + data.teams[i].itemName;
         }
     });
 }

@@ -1,6 +1,6 @@
 //Js file for website
 window.onload = function() {
-    loadBracket(0);
+    loadBrackets();
 
     openTab(null, "Main");
 }
@@ -25,10 +25,38 @@ function show(name) {
 }
 
 function voteButton(clicked_id) {
-    document.getElementById(clicked_id).innerHTML = "clicked";
+    //document.getElementById(clicked_id).innerHTML = "clicked";
+
+    //button id format goes as follows: b r roundID t teamID
+    var roundid = parseInt(clicked_id[2]);
+    var teamid = parseInt(clicked_id[4]);
+
+    //get other team id
+    var otherTeamid = teamid + ((teamid + 1) % 2) - (teamid % 2);
+
+    //disable both buttons
+    document.getElementById(clicked_id).disabled = true;
+    document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
+}
+
+function voteTeam(teamId) {
+
+}
+
+function  writeTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+
 }
 
 function readTextFile(file, callback) {
+    // const fs = require('fs');
+    //
+    // fs.readFile(file, (err, data) => {
+    //    callback(data);
+    // });
+
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
@@ -40,16 +68,16 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
-function loadBracket(bracketID)
+function loadBrackets()
 {
     readTextFile("bracketdata.json", function(text){
         var data = JSON.parse(text);
 
-        let teamCount = 8;
+        let teamCount = data.teams.length;
         var i;
         for(i = 0; i < teamCount; i++)
         {
-            document.getElementById('r1t' + (i + 1).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
+            document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)"><img src="' + data.teams[i].itemPath + '" title="' + data.teams[i].itemName +'" width="240" height="150"/>' + data.teams[i].itemName;
         }
     });
 }

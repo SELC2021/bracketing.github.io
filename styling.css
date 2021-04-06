@@ -74,7 +74,7 @@ table {
 }
 
 td, th {
-    border: 1px solid White;
+    border: 1px White;
     text-align: left;
     padding: 8px;
 }
@@ -94,3 +94,8 @@ tr:nth-child(even) {
     padding: 20px;
     font-size: 30px;
 }
+
+.flex-container button:hover {
+    background-color: black;
+}
+

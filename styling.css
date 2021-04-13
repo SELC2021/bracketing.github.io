@@ -1,7 +1,7 @@
 body {
     font-family: arial, sans-serif;
     height: 1000px;
-    background-color: #cccccc;
+    background-color: White;
     background-image: linear-gradient(Grey, White);
 }
 
@@ -97,5 +97,13 @@ tr:nth-child(even) {
 
 .flex-container button:hover {
     background-color: black;
+}
+flex-container button:active{
+    background-color: black;
+    border-color: black;
+}
+flex-container button:v{
+    background-color: black;
+    border-color: black;
 }
 

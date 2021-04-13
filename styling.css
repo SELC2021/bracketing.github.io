@@ -1,8 +1,9 @@
 body {
     font-family: arial, sans-serif;
-    height: 1000px;
+    height: 100%;
     background-color: White;
     background-image: linear-gradient(Grey, White);
+    background-repeat:no-repeat;
 }
 
 h1, h2, h3 {
@@ -30,6 +31,25 @@ li {
    height: 200px;
 }
 
+li.game{
+    padding-left:20px;
+}
+
+li.game.winner{
+    font-weight:bold;
+}
+li.game span{
+    float:right;
+    margin-right:5px;
+}
+
+li.game-top{ border-bottom:1px solid #aaa; }
+
+li.game-spacer{
+    border-right:1px solid #aaa;
+    min-height:40px;
+}
+
 .center {
     margin: auto;
     width: 100%;
@@ -53,7 +73,6 @@ li {
     transition: 0.3s;
 }
 
-//Create an active/current tablink class
 .tab .active {
     background-color: White;
 }
@@ -90,8 +109,8 @@ tr:nth-child(even) {
 
 .flex-container > div {
     background-color: White;
-    margin: 10px;
-    padding: 20px;
+    margin: 1%;
+    padding: 1%;
     font-size: 30px;
 }
 

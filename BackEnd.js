@@ -29,14 +29,14 @@ function voteButton(clicked_id) {
 
     //button id format goes as follows: b r roundID t teamID
     var roundid = parseInt(clicked_id[2]);
-    var teamid = parseInt(clicked_id[4]);
+    var teamid = parseInt(clicked_id.substring(4, clicked_id.length + 1));
 
     //get other team id
-    var otherTeamid = teamid + ((teamid + 1) % 2) - (teamid % 2);
+    //var otherTeamid = teamid + ((teamid + 1) % 2) - (teamid % 2);
 
     //disable both buttons
-    document.getElementById(clicked_id).disabled = true;
-    document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
+    //document.getElementById(clicked_id).disabled = true;
+    //document.getElementById('br' + roundid + 't' + otherTeamid).disabled = true;
 
     voteTeam(teamid);
     advanceTeam(roundid, teamid);
@@ -49,6 +49,8 @@ function voteTeam(teamId) {
 function advanceTeam(currentRoundId, teamId)
 {
     document.getElementById('br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML = document.getElementById('br' + currentRoundId + 't' + teamId).innerHTML;
+
+    
 }
 
 function  writeTextFile(file, text, callback) {
@@ -97,7 +99,7 @@ function loadBracketById(id, data)
     var j;
     for(j = 1; j < bracketSize(count); j++)
     {
-        for(i = 0; i < count / (Math.pow(2, 1 + j)); i++)
+        for(i = 0; i < count / (Math.pow(2, j)); i++)
         {
             document.getElementById('r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
         }

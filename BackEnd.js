@@ -5,6 +5,7 @@ window.onload = function() {
     openTab(null, "Main");
 }
 
+//opens a tab when a tab button is pressed
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -19,11 +20,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-function show(name) {
-    var popup = document.getElementById(name);
-    popup.classList.toggle("show");
-}
-
+//called when a button is pressed
 function voteButton(clicked_id) {
     //document.getElementById(clicked_id).innerHTML = "clicked";
 
@@ -46,17 +43,25 @@ function voteTeam(teamId) {
 
 }
 
+//advances a team to the next bracket
 function advanceTeam(currentRoundId, teamId)
 {
+    //set the next one to this team
     document.getElementById('br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML = document.getElementById('br' + currentRoundId + 't' + teamId).innerHTML;
 
-    
+    //clear all of the next ones, so if there is another team there, there will no longer be
+    var tId = Math.floor(teamId / 4);
+    for(var i = currentRoundId + 2; i < 10; i++, tId = Math.floor(tId / 2))
+    {
+        document.getElementById('br' + (i) + 't' + tId).innerHTML = '';
+    }
 }
 
 function  writeTextFile(file, text, callback) {
 
 }
 
+//reads json from a file, as text
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
@@ -69,6 +74,7 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
+//loads all brackets from the json file
 function loadBrackets()
 {
     readTextFile("bracketdata.json", function(text){
@@ -82,6 +88,7 @@ function loadBrackets()
     });
 }
 
+//loads an individual bracket
 function loadBracketById(id, data)
 {
     var items = data.brackets[id];
@@ -106,6 +113,7 @@ function loadBracketById(id, data)
     }
 }
 
+//get's the size of the bracket (amount of items) for the next round
 function bracketSize(teamCount)
 {
     if(teamCount === 1) return 1;

@@ -29,11 +29,22 @@ dd {
 }
 
 ul {
-    list-style-type: none;
+    height: 100%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.game {
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 li {
-   height: 200px;
+    height: 200px;
 }
 
 li.game{

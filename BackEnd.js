@@ -29,8 +29,6 @@ function voteButton(clicked_id) {
     var roundid = parseInt(clicked_id[3]);
     var teamid = parseInt(clicked_id.substring(5, clicked_id.length + 1));
 
-    alert(teamid);
-
     //TODO: vote for team here
     advanceTeam(id, roundid, teamid);
 }

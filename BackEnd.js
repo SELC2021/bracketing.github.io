@@ -92,7 +92,7 @@ function loadBracketById(id, data)
     var i;
     for(i = 0; i < count; i++)
     {
-        document.getElementById('r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
+        document.getElementById((id.toString()) + 'r1t' + (i).toString()).innerHTML = '<button type="button" id = "br1t' + i + '" onClick="voteButton(this.id)">' +
             '<img src="' + items[i].itemPath + '" title="' + items[i].itemName +'" width=' + data.width + ' height=' + data.height + '/></button><br>' + items[i].itemName;
     }
 

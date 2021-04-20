@@ -102,7 +102,7 @@ function loadBracketById(id, data)
     {
         for(i = 0; i < count / (Math.pow(2, j)); i++)
         {
-            document.getElementById('r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
+            document.getElementById((id.toString()) + 'r' + (j + 1) + 't' + (i)).innerHTML = '<button type="button" id = "br' + (j + 1) + 't' + i + '" onClick="voteButton(this.id)"></button><br>';
         }
     }
 }

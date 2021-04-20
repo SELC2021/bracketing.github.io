@@ -36,14 +36,31 @@ function voteButton(clicked_id) {
 //advances a team to the next bracket
 function advanceTeam(bracketId, currentRoundId, teamId)
 {
-    //set the next one to this team
-    document.getElementById(bracketId.toString() + 'br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML = document.getElementById(bracketId.toString() + 'br' + currentRoundId + 't' + teamId).innerHTML;
+    let content = document.getElementById(bracketId.toString() + 'br' + currentRoundId + 't' + teamId).innerHTML;
 
-    //clear all of the next ones, so if there is another team there, there will no longer be
-    var tId = Math.floor(teamId / 4);
-    for(var i = currentRoundId + 2; i < 10; i++, tId = Math.floor(tId / 2))
+    let nextContent = document.getElementById(bracketId.toString() + 'br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML;
+
+    var clearAll = false;
+
+    if(nextContent !== '' && nextContent !== content)
     {
-        document.getElementById(bracketId.toString() + 'br' + (i) + 't' + tId).innerHTML = '';
+        clearAll = true;
+    }
+
+    //set the next one to this team
+    document.getElementById(bracketId.toString() + 'br' + (currentRoundId + 1) + 't' + Math.floor(teamId / 2)).innerHTML = content;
+
+    if(clearAll)
+    {
+        //clear all of the next ones, so if there is another team there, there will no longer be
+        var tId = Math.floor(teamId / 4);
+        for(var i = currentRoundId + 2; i < 10; i++, tId = Math.floor(tId / 2))
+        {
+            var id = bracketId.toString() + 'br' + (i) + 't' + tId;
+            var inner = document.getElementById(id).innerHTML;
+
+            document.getElementById(id).innerHTML = '';
+        }
     }
 }
 

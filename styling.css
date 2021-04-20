@@ -118,6 +118,7 @@ tr:nth-child(even) {
 .flex-container {
     display: flex;
     background-color: White;
+
 }
 
 .flex-container > div {

@@ -20,14 +20,14 @@
 
   ],
   [
-    {"itemName":"Burger King","itemPatch":"BracketGifts/FastFoodGifs/BurgerKing.gif","votes":"0"},
-    {"itemName":"Culvers","itemPatch":"BracketGifts/FastFoodGifs/Culvers.gif","votes":"0"},
-    {"itemName":"Five Guys","itemPatch":"BracketGifts/FastFoodGifs/FiveGuys.gif","votes":"0"},
-    {"itemName":"In-N-Out","itemPatch":"BracketGifts/FastFoodGifs/InNOut.gif","votes":"0"},
-    {"itemName":"McDonalds","itemPatch":"BracketGifts/FastFoodGifs/McDonalds.gif","votes":"0"},
-    {"itemName":"Sonic","itemPatch":"BracketGifts/FastFoodGifs/Sonic.gif","votes":"0"},
-    {"itemName":"Whataburger","itemPatch":"BracketGifts/FastFoodGifs/whataburger.gif","votes":"0"},
-    {"itemName":"Wendys","itemPatch":"BracketGifts/FastFoodGifs/Wendys.gif","votes":"0"}
+    {"itemName":"Burger King","itemPath":"BracketGifs/FastFoodPics/BurgerKing.png","votes":"0"},
+    {"itemName":"Culvers","itemPath":"BracketGifs/FastFoodPics/Culvers.png","votes":"0"},
+    {"itemName":"Five Guys","itemPath":"BracketGifs/FastFoodPics/FiveGuys.png","votes":"0"},
+    {"itemName":"In-N-Out","itemPath":"BracketGifs/FastFoodPics/InNOut.png","votes":"0"},
+    {"itemName":"McDonalds","itemPath":"BracketGifs/FastFoodPics/McDonalds.png","votes":"0"},
+    {"itemName":"Sonic","itemPath":"BracketGifs/FastFoodPics/Sonic.png","votes":"0"},
+    {"itemName":"Steak 'N' Shake","itemPath":"BracketGifs/FastFoodPics/SteakNShake.png","votes":"0"},
+    {"itemName":"Wendys","itemPath":"BracketGifs/FastFoodPics/Wendys.png","votes":"0"}
 
   ]
 ],

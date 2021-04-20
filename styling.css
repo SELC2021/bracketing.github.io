@@ -4,7 +4,7 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
+    overflow: auto;
     background-color: White;
     background-image: linear-gradient(Grey, White);
     background-repeat:no-repeat;
@@ -21,6 +21,7 @@ h1, h2, h3 {
     margin: 50px auto;
     width: 100%;
     text-align: center;
+    overflow: auto;
 }
 
 dd {
@@ -84,6 +85,7 @@ li.game-bottom{
     outline: none;
     padding: 14px 16px;
     transition: 0.3s;
+    overflow-x: auto;
 }
 
 .tab .active {
@@ -97,6 +99,7 @@ li.game-bottom{
     border-radius: 12px;
     background-color: White;
     border-top: none;
+
 }
 
 table {
@@ -118,6 +121,7 @@ tr:nth-child(even) {
 .flex-container {
     display: flex;
     background-color: White;
+    overflow-x: auto;
 }
 
 .flex-container > div {
@@ -125,6 +129,7 @@ tr:nth-child(even) {
     margin: 1%;
     padding: 1%;
     font-size: 30px;
+    overflow-x: auto;
 }
 
 .flex-container button:hover {
